@@ -160,6 +160,7 @@ function SchemaFieldRender(props) {
     required,
     registry = getDefaultRegistry(),
   } = props;
+
   const {
     definitions,
     fields,

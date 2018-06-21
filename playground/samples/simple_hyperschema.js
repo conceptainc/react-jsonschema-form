@@ -1,9 +1,32 @@
 module.exports = {
   schema: {
-    $schema: "http://json-schema.org/draft-06/schema#",
+    $schema: "http://json-schema.org/draft-07/hyper-schema#",
+    base: "http://jsonplaceholder.typicode.com/",
     type: "object",
     title: "An entitiy",
     properties: {
+      owner: {
+        type: "object",
+        properties: {
+          id: {
+            type: "number",
+            readOnly: true,
+          },
+          name: {
+            type: "string",
+          },
+        },
+        links: [
+          {
+            rel: "self",
+            href: "http://jsonplaceholder.typicode.com/users/{id}",
+          },
+          {
+            rel: "collection",
+            href: "http://jsonplaceholder.typicode.com/users",
+          },
+        ],
+      },
       entity: {
         type: "string",
       },
@@ -75,6 +98,9 @@ module.exports = {
     },
   },
   uiSchema: {
+    owner: {
+      "ui:field": "autocomp",
+    },
     entity: {
       "ui:widget": "hidden",
     },

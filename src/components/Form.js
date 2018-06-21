@@ -186,7 +186,11 @@ export default class Form extends Component {
       enctype,
       acceptcharset,
       noHtml5Validate,
+      schema: rootSchema,
     } = this.props;
+
+    console.log("internal this.props", this.props);
+    console.log("rootSchema ", rootSchema);
 
     const { schema, uiSchema, formData, errorSchema, idSchema } = this.state;
     const registry = this.getRegistry();
@@ -218,6 +222,7 @@ export default class Form extends Component {
           onFocus={this.onFocus}
           registry={registry}
           safeRenderCompletion={safeRenderCompletion}
+          rootSchema={rootSchema}
         />
         {children ? (
           children

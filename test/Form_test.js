@@ -193,12 +193,8 @@ describe("Form", () => {
           {children}
           {errors}
           {help}
-          <span className="raw-help">
-            {`${rawHelp} rendered from the raw format`}
-          </span>
-          <span className="raw-description">
-            {`${rawDescription} rendered from the raw format`}
-          </span>
+          <span className="raw-help">{`${rawHelp} rendered from the raw format`}</span>
+          <span className="raw-description">{`${rawDescription} rendered from the raw format`}</span>
           {rawErrors ? (
             <ul>
               {rawErrors.map((error, i) => (
