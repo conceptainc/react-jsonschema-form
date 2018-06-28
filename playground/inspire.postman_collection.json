@@ -1,0 +1,2795 @@
+{
+	"info": {
+		"_postman_id": "2a3b19d5-6176-3868-28ba-95c76f7eb3a2",
+		"name": "inspire",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"description": "",
+			"item": [
+				{
+					"name": "local",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"identifier\": \"marshall@conceptsol.net\",\n    \"password\": \"Test1234\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/auth/local",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"local"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "local (admin)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"identifier\": \"admin@example.com\",\n    \"password\": \"admin1234\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/auth/local",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"local"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/auth/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "accessPolicy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/auth/accessPolicy",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"accessPolicy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "featurePolicy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/auth/featurePolicy",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"featurePolicy"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Criteria",
+			"description": "",
+			"item": [
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/criteria",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"criteria"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/criteria/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"criteria",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"permission\": \"daf3b838-e0ce-4746-a3e6-569a97de59e7\",\n  \"where\": {\n  \t\"city\": {\n  \t\t\"like\": \"%ando\"\n  \t}\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/criteria",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"criteria"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Manage Equipment\",\n  \"active\": true\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/criteria/4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"criteria",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "destroy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/criteria/032819d4-17b9-4265-8255-80ece46c3e41",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"criteria",
+								"032819d4-17b9-4265-8255-80ece46c3e41"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Object Filter",
+			"description": "",
+			"item": [
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/objectFilter",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"objectFilter"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/objectFilter/c959de0d-6bdd-4288-8c1e-dc767d0bc31a",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"objectFilter",
+								"c959de0d-6bdd-4288-8c1e-dc767d0bc31a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"objectId\": \"14a8e302-67d8-42bf-9e26-98ff9c052c68\",\n  \"permission\": \"daf3b838-e0ce-4746-a3e6-569a97de59e7\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/objectFilter",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"objectFilter"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"allow\": true,\n  \"objectId\": \"76af7186-8c28-4c82-b7a2-6dc485c3c8a5\",\n  \"permission\": \"da58cfd1-80a6-436c-9754-4250d7ffb673\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/objectFilter/e8b2d9bf-ec58-4b85-b6d2-2162c2c531b5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"objectFilter",
+								"e8b2d9bf-ec58-4b85-b6d2-2162c2c531b5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "destroy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/objectFilter/465e6507-8def-46ca-b95b-0064d4f49c17",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"objectFilter",
+								"465e6507-8def-46ca-b95b-0064d4f49c17"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Erm Entity Schema",
+			"description": "",
+			"item": [
+				{
+					"name": "findOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/v1/ermEntitySchema/6bf5fdda-e51a-4e46-b82f-1051f860eb1d",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"ermEntitySchema",
+								"6bf5fdda-e51a-4e46-b82f-1051f860eb1d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Erm Entity Template",
+			"description": "",
+			"item": [
+				{
+					"name": "findOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/v1/ermEntityTemplate/672eddfb-3b5e-4ff0-8cbc-d6a3f9e1e517",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"ermEntityTemplate",
+								"672eddfb-3b5e-4ff0-8cbc-d6a3f9e1e517"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Erm Entity",
+			"description": "",
+			"item": [
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/v1/ermEntity?name=testall",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"ermEntity"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "testall"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/v1/ermEntity/672eddfb-3b5e-4ff0-8cbc-d6a3f9e1e517",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"ermEntity",
+								"672eddfb-3b5e-4ff0-8cbc-d6a3f9e1e517"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Erm Field",
+			"description": "",
+			"item": [
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/v1/ermField?entity=672eddfb-3b5e-4ff0-8cbc-d6a3f9e1e517",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"ermField"
+							],
+							"query": [
+								{
+									"key": "entity",
+									"value": "672eddfb-3b5e-4ff0-8cbc-d6a3f9e1e517"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Erm Record Text",
+			"description": "",
+			"item": [
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/v1/ermRecordText?field=eb2d89d8-e2a8-44e6-906f-64932f7f1ac4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"ermRecordText"
+							],
+							"query": [
+								{
+									"key": "field",
+									"value": "eb2d89d8-e2a8-44e6-906f-64932f7f1ac4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Erm Entity Association",
+			"description": "",
+			"item": [
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/v1/ermEntityAssociation?name=activityIsCall",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"ermEntityAssociation"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "activityIsCall"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/v1/ermEntityAssociation/ae390d6f-f2a2-4dbd-a789-9722a6bbbcc5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"ermEntityAssociation",
+								"ae390d6f-f2a2-4dbd-a789-9722a6bbbcc5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Erm Record",
+			"description": "",
+			"item": [
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/v1/ermRecord?populate=false",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"ermRecord"
+							],
+							"query": [
+								{
+									"key": "populate",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/v1/ermRecord/cb20fdfb-f42f-43eb-9342-41c60061f344",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"ermRecord",
+								"cb20fdfb-f42f-43eb-9342-41c60061f344"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "populate parent",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/v1/ermRecord/674879fa-510a-4011-b715-905546b6bb1e/children/68fc2c9a-5f7a-476d-a530-af2f66bfb982",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"ermRecord",
+								"674879fa-510a-4011-b715-905546b6bb1e",
+								"children",
+								"68fc2c9a-5f7a-476d-a530-af2f66bfb982"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "populate parent via",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"parent\": \"050a2c4b-a8b2-4f35-846f-a06f2e333b40\",\n\t\"child\": \"069de019-c21e-419f-8cc2-f68436915203\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/ermRecordHasManySelf",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"ermRecordHasManySelf"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Erm Record Document",
+			"description": "",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entity\": \"testall\",\n    \"recordStatusType\": \"active\",\n    \"fields\": {\n        \"boolTest\": [{\"val\": true}],\n        \"numberTest\": \"\",\n        \"dateTest\": \"\",\n        \"textTest\": {\n        \t\"val\": \"Testing 1234\"\n        },\n        \"textTestMulti\": [\n        \t{\n        \t\t\"val\": \"Testing Mult1\"\n\t        },{\n\t        \t\"val\": \"Testing Mult2\"\n\t        }\n        ],\n        \"enumTest\": {\n        \t\"name\": \"one\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/ermRecordDocument",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"ermRecordDocument"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create (activityCall)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"a1cec951-fe62-46b9-9ddd-286f86918865\",\n    \"entity\": \"myentity\",\n    \"recordStatusType\": \"active\",\n    \"fields\": {\n        \"comments\": {\n            \"val\": \"This is a comment.\"\n        }\n    },\n    \"associations\": {\n    \t\"myAssoc\": \"f721b30c-744b-40bb-89f9-95e559bfffae\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/ermRecordDocument",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"ermRecordDocument"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create (with assoc)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entity\": \"deal\",\n    \"recordStatusType\": \"active\",\n    \"fields\": {\n        \"owner\": {\n            \"val\": \"Marshall\"\n        },\n        \"accountName\": {\n            \"val\": \"Super Troopers\"\n        },\n        \"type\": {\n            \"name\": \"one\"\n        },\n        \"nextStep\": {\n            \"val\": \"Go to lunch\"\n        },\n        \"leadSource\": {\n            \"val\": \"Easy Leads\"\n        },\n        \"contactName\": {\n            \"val\": \"Sgt Strawbaker\"\n        },\n        \"amount\": {\n            \"val\": 150000\n        },\n        \"closingDate\": {\n            \"val\": \"2018-08-01\"\n        },\n        \"probability\": {\n            \"val\": 50\n        },\n        \"expectedRevenue\": {\n            \"val\": 50000\n        },\n        \"campaignSource\": {\n            \"val\": \"Foobar\"\n        },\n        \"description\": {\n            \"val\": \"This is a big deal\"\n        },\n        \"name\": {\n            \"val\": \"The Big Deal\"\n        }\n    },\n    \"associations\": {\n    \t\"dealAccount\": \"f721b30c-744b-40bb-89f9-95e559bfffae\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/ermRecordDocument",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"ermRecordDocument"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createBatch",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n\t{\n\t\t\"id\": \"a1cec951-fe62-46b9-9ddd-286f86918888\",\n\t    \"entity\": \"activityCall\",\n\t    \"recordStatusType\": \"active\",\n\t    \"fields\": {\n\t        \"comments\": {\n\t            \n\t        }\n\t    }\n\t},\n\t{\n\t\t\"id\": \"a1cec951-fe62-46b9-9ddd-286f86919999\",\n\t    \"entity\": \"activityCall\",\n\t    \"recordStatusType\": \"active\",\n\t    \"fields\": {\n\t        \"comments\": {\n\t            \"val\": \"Called and got assistant.\"\n\t        }\n\t    }\n\t}\n]"
+						},
+						"url": {
+							"raw": "{{url}}/v1/ermRecordDocument/batch",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"ermRecordDocument",
+								"batch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"entity\": \"customer\",\n    \"fields\": {\n        \"fax\": [\n            {\n                \"id\": \"3210cee2-2d75-4320-8a1e-d7ba836985f1\",\n                \"number\": \"000 000-0000\",\n                \"priority\": 0,\n                \"phoneType\": \"alternate\"\n            }\n        ],\n        \"email\": [\n            {\n                \"id\": \"ee9bac28-242c-410d-ac5c-e90fe97a1143\",\n                \"address\": \"leads@teampainting.com\",\n                \"priority\": 0,\n                \"emailType\": \"primary\"\n            }\n        ],\n        \"phone\": [\n            {\n                \"id\": \"1afb91f6-0274-4d93-874b-74b931b0c841\",\n                \"number\": \"000 000-0000\",\n                \"priority\": 0,\n                \"phoneType\": \"office\"\n            }\n        ],\n        \"title\": [\n            {\n                \"val\": \"CEO\"\n            }\n        ],\n        \"website\": [\n            {\n                \"val\": \"http://teampainting.com\"\n            }\n        ],\n        \"lastName\": [\n            {\n                \"val\": \"Kilburn\"\n            }\n        ],\n        \"workType\": [\n            {\n                \"name\": \"residential\"\n            }\n        ],\n        \"firstName\": [\n            {\n                \"val\": \"Jennifer\"\n            }\n        ],\n        \"firstHeard\": [\n            {\n                \"val\": \"Friend of a friend.\"\n            }\n        ],\n        \"middleName\": [\n            {\n                \"val\": \"Z\"\n            }\n        ],\n        \"referralOk\": [\n            {\n                \"val\": true\n            }\n        ],\n        \"salutation\": [\n            {\n                \"val\": \"miss\"\n            }\n        ],\n        \"addressMain\": [\n            {\n                \"id\": \"44a440b0-3fe1-4241-bc55-b31a9c7aaa28\",\n                \"zip\": \"32159\",\n                \"city\": \"Lady Lake\",\n                \"line1\": \"3241 Lake Griffin Rd\",\n                \"line2\": \"\",\n                \"geoState\": \"6d356cbb-29e8-4370-bfe7-deaf528762a4\",\n                \"priority\": 0,\n                \"geoCountry\": \"19055958-bdb7-4599-93a2-ce5f4873f580\",\n                \"addressType\": \"office\"\n            }\n        ],\n        \"companyName\": [\n            {\n                \"val\": \"Team Painting\"\n            }\n        ],\n        \"paintBudget\": [\n        \t{\n        \t\t\"val\": \"99999\"\n        \t}\n        ],\n        \"projectType\": [\n            {\n                \"name\": \"new\"\n            }\n        ],\n        \"referralTOD\": [\n            {\n                \"name\": \"duringBusiness\"\n            }\n        ],\n        \"businessType\": [\n            {\n                \"name\": \"generalContractor\"\n            }\n        ],\n        \"numEmployees\": [\n            {\n                \"val\": \"33\"\n            }\n        ],\n        \"relationship\": [\n            {\n                \"val\": \"Must respond quickly.\"\n            }\n        ],\n        \"paintSupplier\": [\n            {\n                \"val\": \"Home Depot\"\n            }\n        ],\n        \"referralPhone\": [\n            {\n                \"id\": \"ee8e5a4d-9efc-44af-b267-774ce30566aa\",\n                \"number\": \"000 000-0000\",\n                \"priority\": 0,\n                \"phoneType\": \"mobile\"\n            }\n        ],\n        \"addressMailing\": [\n            {\n                \"id\": \"41235290-6fa6-482d-996f-bf41dacbfc3a\",\n                \"zip\": \"32159\",\n                \"city\": \"Lady Lake\",\n                \"line1\": \"3241 Lake Griffin Rd\",\n                \"line2\": \"\",\n                \"geoState\": \"6d356cbb-29e8-4370-bfe7-deaf528762a4\",\n                \"priority\": 0,\n                \"geoCountry\": \"19055958-bdb7-4599-93a2-ce5f4873f580\",\n                \"addressType\": \"office\"\n            }\n        ]\n    },\n    \"recordStatusType\": \"active\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/ermRecordDocument/913924e3-4a63-4218-94c1-70edff76a0ca",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"ermRecordDocument",
+								"913924e3-4a63-4218-94c1-70edff76a0ca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "destroy",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/ermRecordDocument/a1cec951-fe62-46b9-9ddd-286f86918865",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"ermRecordDocument",
+								"a1cec951-fe62-46b9-9ddd-286f86918865"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/v1/ermRecordDocument?entity=customer",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"ermRecordDocument"
+							],
+							"query": [
+								{
+									"key": "recordStatusType",
+									"value": "active",
+									"disabled": true
+								},
+								{
+									"key": "entity",
+									"value": "customer"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find (sequelize)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/v1/ermRecordDocument?where={\"$and\": [{\"data\": {\"entity\": \"deal\"}}, {\"data\": {\"$contains\": {\"fields\": {\"probability\": [{\"val\": 67}]}}}}]}&whereSyntax=sequelize",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"ermRecordDocument"
+							],
+							"query": [
+								{
+									"key": "where",
+									"value": "{\"$and\": [{\"data\": {\"entity\": \"deal\"}}, {\"data\": {\"$contains\": {\"fields\": {\"probability\": [{\"val\": 67}]}}}}]}"
+								},
+								{
+									"key": "whereSyntax",
+									"value": "sequelize"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search (inspire)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"syntax\": \"inspire\",\n\t\"criteria\": {\n\t\t\"id\": \"g-f0314635-50a3-45f9-8bbe-252233128aa7\",\n\t\t\"ruleType\": \"group\",\n\t\t\"rules\": [\n\t\t\t{\n\t\t\t\t\"id\": \"r-281dad1c-3c32-4532-9e90-177e4ce5f1db\",\n\t\t\t\t\"ruleType\": \"entityRule\",\n\t\t\t\t\"operator\": \"GTE\",\n\t\t\t\t\"entityField\": \"probability\",\n\t\t\t\t\"entitySubfield\": \"val\",\n\t\t\t\t\"value\": \"50\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"id\": \"ar-bf9fd8c7-4909-40f9-ac38-d1aa931e9287\",\n\t\t\t\t\"ruleType\": \"associationRule\",\n\t\t\t\t\"operator\": \"startsWith\",\n\t\t\t\t\"association\": \"Account\",\n\t\t\t\t\"associationId\": \"ae390d6f-f2a2-4dbd-a789-9722a6bbbcc5\",\n\t\t\t\t\"associationField\": \"phoneWork\",\n\t\t\t\t\"associationSubfield\": \"number\",\n\t\t\t\t\"value\": \"555\"\n\t\t\t}\n\t\t],\n\t\t\"combinator\": \"AND\",\n\t\t\"parameters\": {\n\t\t\t\"entity\": \"deal\",\n\t\t\t\"entityId\": \"75dd057f-f7ce-467b-9bfe-ef85cadc6077\",\n\t\t\t\"sort\": \"Ascending\",\n\t\t\t\"limit\": 10,\n\t\t\t\"advanced\": true\n\t\t}\n\t}\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/ermRecordDocument/search",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"ermRecordDocument",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search (inspire) copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"syntax\": \"inspire\",\n\t\"criteria\": {\n\t\"id\": \"g-f0314635-50a3-45f9-8bbe-252233128aa7\",\n\t\"ruleType\": \"group\",\n\t\"rules\": [\n\t  {\n\t\t\"id\": \"r-281dad1c-3c32-4532-9e90-177e4ce5f1db\",\n\t\t\"ruleType\": \"entityRule\",\n\t\t\"operator\": \"*\",\n\t\t\"entityField\": \"\",\n\t\t\"entitySubfield\": \"\",\n\t\t\"value\": \"\"\n\t  },\n\t  {\n\t\t\"id\": \"ar-bf9fd8c7-4909-40f9-ac38-d1aa931e9287\",\n\t\t\"ruleType\": \"associationRule\",\n\t\t\"operator\": \"*\",\n\t\t\"association\": \"Activity Account\",\n\t\t\"associationId\": \"02dd42be-cfd1-4254-93db-dfc61a8143fb\",\n\t\t\"associationField\": \"name\",\n\t\t\"associationSubfield\": \"val\",\n\t\t\"value\": \"ABC%\"\n\t  }\n\t],\n\t\"combinator\": \"AND\",\n\t\"parameters\": {\n\t  \"entity\": \"activity\",\n\t  \"entityId\": \"18564699-520a-4c13-a3f0-ea84d90b3f5f\",\n\t  \"sort\": \"Ascending\",\n\t  \"limit\": 10,\n\t  \"advanced\": true\n\t}\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/ermRecordDocument/search",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"ermRecordDocument",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/v1/ermRecordDocument/913924e3-4a63-4218-94c1-70edff76a0ca",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"ermRecordDocument",
+								"913924e3-4a63-4218-94c1-70edff76a0ca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/ermRecordDocument/127293f4-d856-47d7-be17-bb63479d092f/activityIsCall/6367178a-8774-4fdc-83dd-054a852aedc0",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"ermRecordDocument",
+								"127293f4-d856-47d7-be17-bb63479d092f",
+								"activityIsCall",
+								"6367178a-8774-4fdc-83dd-054a852aedc0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/ermRecordDocument/7997e985-39ac-412e-b1ec-1eb132bdb983/accountContacts/977b9e6a-af72-49a3-bd56-37685442d890",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"ermRecordDocument",
+								"7997e985-39ac-412e-b1ec-1eb132bdb983",
+								"accountContacts",
+								"977b9e6a-af72-49a3-bd56-37685442d890"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "populate",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/ermRecordDocument/f721b30c-744b-40bb-89f9-95e559bfffae/activityAccount",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"ermRecordDocument",
+								"f721b30c-744b-40bb-89f9-95e559bfffae",
+								"activityAccount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "populate (reverse)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/ermRecordDocument/7997e985-39ac-412e-b1ec-1eb132bdb983/dealAccount?reverse=true",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"ermRecordDocument",
+								"7997e985-39ac-412e-b1ec-1eb132bdb983",
+								"dealAccount"
+							],
+							"query": [
+								{
+									"key": "reverse",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Model",
+			"description": "",
+			"item": [
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/model?name=Role",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"model"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "7727ac7b-c910-4096-b18d-a027d46f9293",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "Role"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/model/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"model",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Model Permissions",
+			"description": "",
+			"item": [
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/model/1/permissions",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"model",
+								"1",
+								"permissions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/model/4/permissions/201",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"model",
+								"4",
+								"permissions",
+								"201"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/model/18/permissions/201",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"model",
+								"18",
+								"permissions",
+								"201"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Permission",
+			"description": "",
+			"item": [
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/permission?role=acff716b-2c2a-4b07-aa4b-86cd5984bd17&populate=model,role&model=0208b0c5-7aec-4565-81ad-ef42183d02e8&sort=updatedAt",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"permission"
+							],
+							"query": [
+								{
+									"key": "role",
+									"value": "acff716b-2c2a-4b07-aa4b-86cd5984bd17"
+								},
+								{
+									"key": "populate",
+									"value": "model,role"
+								},
+								{
+									"key": "model",
+									"value": "0208b0c5-7aec-4565-81ad-ef42183d02e8"
+								},
+								{
+									"key": "sort",
+									"value": "updatedAt"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/permission/30413925-2a1e-409d-bb7c-152707dd9f94",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"permission",
+								"30413925-2a1e-409d-bb7c-152707dd9f94"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create (role)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"model\": \"0208b0c5-7aec-4565-81ad-ef42183d02e8\",\n  \"action\": \"delete\",\n  \"relation\": \"role\",\n  \"role\": \"acff716b-2c2a-4b07-aa4b-86cd5984bd17\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/permission",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"permission"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create (user)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"model\":\"ac2d79b2-9340-4b2c-8863-5b01026f0547\",\n\t\"action\":\"read\",\n\t\"relation\":\"user\",\n\t\"user\":\"ac4db12b-2bb2-47b2-a1c5-b7e574176d26\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/permission",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"permission"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create (owner)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"model\": \"21891507-bdf6-4607-8a31-647eb7bfb11b\",\n  \"action\": \"delete\",\n  \"relation\": \"owner\",\n  \"user\": \"ed03b38b-b8ff-4292-ae4e-c813d04cdafb\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/permission",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"permission"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/permission/4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"permission",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "destroy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/permission/bbd87b4e-d8a8-4f0e-a212-9afe8299d9d2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"permission",
+								"bbd87b4e-d8a8-4f0e-a212-9afe8299d9d2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Permission Object Filters",
+			"description": "",
+			"item": [
+				{
+					"name": "populate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[]"
+						},
+						"url": {
+							"raw": "{{url}}/v1/permission/264ee24c-70e4-4111-886f-a0793292da46/objectFilters",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"permission",
+								"264ee24c-70e4-4111-886f-a0793292da46",
+								"objectFilters"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Role",
+			"description": "",
+			"item": [
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/role?populate=false",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"role"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "subscriberAdmin",
+									"disabled": true
+								},
+								{
+									"key": "populate",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/role/a9c26203-f60a-4d8e-b294-d4c7fca98518",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"role",
+								"a9c26203-f60a-4d8e-b294-d4c7fca98518"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Feature Test 2\",\n  \"active\": true\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/role",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Manage Equipment\",\n  \"active\": true\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/role/4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"role",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "destroy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/role/74961b8a-00d9-48b2-afc6-9fe7c353c657",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"role",
+								"74961b8a-00d9-48b2-afc6-9fe7c353c657"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Role Permissions",
+			"description": "",
+			"item": [
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/role/acff716b-2c2a-4b07-aa4b-86cd5984bd17/permissions",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"role",
+								"acff716b-2c2a-4b07-aa4b-86cd5984bd17",
+								"permissions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/role/4/permissions/201",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"role",
+								"4",
+								"permissions",
+								"201"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/role/4/permissions/201",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"role",
+								"4",
+								"permissions",
+								"201"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Role Users",
+			"description": "",
+			"item": [
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/role/a9c26203-f60a-4d8e-b294-d4c7fca98518/users?populate=patients",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"role",
+								"a9c26203-f60a-4d8e-b294-d4c7fca98518",
+								"users"
+							],
+							"query": [
+								{
+									"key": "populate",
+									"value": "patients"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/role/693eebc9-41fa-427f-9c69-c0608d8b6ec2/users/a75ca0de-dd92-48f3-b266-43969d959bb6",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"role",
+								"693eebc9-41fa-427f-9c69-c0608d8b6ec2",
+								"users",
+								"a75ca0de-dd92-48f3-b266-43969d959bb6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/role/0f147f85-38a8-4ad1-bedf-578ffbffbfa4/users/31d0f6bf-65fc-4320-81a6-9e941c59883e",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"role",
+								"0f147f85-38a8-4ad1-bedf-578ffbffbfa4",
+								"users",
+								"31d0f6bf-65fc-4320-81a6-9e941c59883e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Role Features",
+			"description": "",
+			"item": [
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/role/28697d10-0a59-4471-97f1-94ec09caf2eb/features",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"role",
+								"28697d10-0a59-4471-97f1-94ec09caf2eb",
+								"features"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/role/e2f2fe70-3efc-4cc5-8d42-bce593798e46/features/03117473-66a2-4695-9c15-e5598428beed",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"role",
+								"e2f2fe70-3efc-4cc5-8d42-bce593798e46",
+								"features",
+								"03117473-66a2-4695-9c15-e5598428beed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/role/f6ceffe1-5578-4891-acbd-1877e569c87e/features/3d0d4539-fe56-4d28-bfda-0006a8f59440",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"role",
+								"f6ceffe1-5578-4891-acbd-1877e569c87e",
+								"features",
+								"3d0d4539-fe56-4d28-bfda-0006a8f59440"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Feature",
+			"description": "",
+			"item": [
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/feature?",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"feature"
+							],
+							"query": [
+								{
+									"key": "populate",
+									"value": "false",
+									"disabled": true
+								},
+								{
+									"key": "context",
+									"value": "crm",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/feature/7b58787a-884c-4061-ba54-9e26d23cb490",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"feature",
+								"7b58787a-884c-4061-ba54-9e26d23cb490"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Sales Report\",\n  \"identity\": \"salesReport\",\n  \"context\": \"bizintel\",\n  \"active\": true\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/feature",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"feature"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"system.settings\",\n  \"active\": true\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/feature/4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"feature",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "destroy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/feature/2670ad38-1fc2-4400-b5db-54b2f49fe36a",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"feature",
+								"2670ad38-1fc2-4400-b5db-54b2f49fe36a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"description": "",
+			"item": [
+				{
+					"name": "me",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/user/me",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/user/1d084037-002f-41f2-9287-28487c1c93aa?populate=roles",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"1d084037-002f-41f2-9287-28487c1c93aa"
+							],
+							"query": [
+								{
+									"key": "populate",
+									"value": "roles"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstName\":\"System\",\n\t\"lastName\":\"Admin\",\n\t\"email\":\"ceo@smartrx.com\",\n\t\"username\":\"system_admin\",\n\t\"password\":\"Test1234\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@conceptsol.com\",\n    \"password\": \"QxSC6NsBf63PwK6w\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/user/91de3dc6-74b8-4f30-962c-5993b19e2a3f",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"91de3dc6-74b8-4f30-962c-5993b19e2a3f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "destroy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/user/ed03b38b-b8ff-4292-ae4e-c813d04cdafb",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"ed03b38b-b8ff-4292-ae4e-c813d04cdafb"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Emails",
+			"description": "",
+			"item": [
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/user/31d0f6bf-65fc-4320-81a6-9e941c59883e/userEmails",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"31d0f6bf-65fc-4320-81a6-9e941c59883e",
+								"userEmails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/user/2/roles/4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"2",
+								"roles",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/user/2/roles/4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"2",
+								"roles",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Roles",
+			"description": "",
+			"item": [
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/user/712fb095-2772-45e5-9266-7bae9a3f82ef/roles",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"712fb095-2772-45e5-9266-7bae9a3f82ef",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/user/1d084037-002f-41f2-9287-28487c1c93aa/roles/acff716b-2c2a-4b07-aa4b-86cd5984bd17",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"1d084037-002f-41f2-9287-28487c1c93aa",
+								"roles",
+								"acff716b-2c2a-4b07-aa4b-86cd5984bd17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/user/ed03b38b-b8ff-4292-ae4e-c813d04cdafb/roles/b269e698-6f47-43ca-b462-7bad673d6346",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"ed03b38b-b8ff-4292-ae4e-c813d04cdafb",
+								"roles",
+								"b269e698-6f47-43ca-b462-7bad673d6346"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Features",
+			"description": "",
+			"item": [
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/user/ed03b38b-b8ff-4292-ae4e-c813d04cdafb/features",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"ed03b38b-b8ff-4292-ae4e-c813d04cdafb",
+								"features"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/user/ed03b38b-b8ff-4292-ae4e-c813d04cdafb/features/698309a1-b3a7-4d9d-82bd-f6f41671b119",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"ed03b38b-b8ff-4292-ae4e-c813d04cdafb",
+								"features",
+								"698309a1-b3a7-4d9d-82bd-f6f41671b119"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/user/ed03b38b-b8ff-4292-ae4e-c813d04cdafb/features/3d0d4539-fe56-4d28-bfda-0006a8f59440",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"ed03b38b-b8ff-4292-ae4e-c813d04cdafb",
+								"features",
+								"3d0d4539-fe56-4d28-bfda-0006a8f59440"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Permissions",
+			"description": "",
+			"item": [
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/user/712fb095-2772-45e5-9266-7bae9a3f82ef/permissions",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"712fb095-2772-45e5-9266-7bae9a3f82ef",
+								"permissions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UserEmail",
+			"description": "",
+			"item": [
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/userEmail/c6811229-7206-4c21-a686-3145c97b9e4a",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"userEmail",
+								"c6811229-7206-4c21-a686-3145c97b9e4a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"address\": \"admin@foobar.baz\",\n  \"user\": \"31d0f6bf-65fc-4320-81a6-9e941c59883e\",\n  \"emailType\": \"d089971e-f95c-4588-b3a2-1d3afd17870f\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/userEmail",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"userEmail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\n    \"priority\": 1\n  }"
+						},
+						"url": {
+							"raw": "{{url}}/v1/userEmail/c6811229-7206-4c21-a686-3145c97b9e4a",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"userEmail",
+								"c6811229-7206-4c21-a686-3145c97b9e4a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "destroy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/userEmail/c6811229-7206-4c21-a686-3145c97b9e4a",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"userEmail",
+								"c6811229-7206-4c21-a686-3145c97b9e4a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Geo Country",
+			"description": "",
+			"item": [
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/geoCountry?populate=false",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"geoCountry"
+							],
+							"query": [
+								{
+									"key": "populate",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Geo State",
+			"description": "",
+			"item": [
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/geoState",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"geoState"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dummy Store",
+			"description": "",
+			"item": [
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/v1/dummyStore",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"dummyStore"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find (test)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/v1/dummyStoreTest",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"dummyStoreTest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Peter's Pizza\",\n\t\"phone\": \"555-555-8888\",\n\t\"city\": \"Orlando\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/dummyStore",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"dummyStore"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Peter's Pizza\",\n\t\"phone\": \"555-555-7777\",\n\t\"city\": \"Orlando\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/dummyStore/76af7186-8c28-4c82-b7a2-6dc485c3c8a5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"dummyStore",
+								"76af7186-8c28-4c82-b7a2-6dc485c3c8a5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "destroy",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/v1/dummyStore/14a8e302-67d8-42bf-9e26-98ff9c052c68",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"dummyStore",
+								"14a8e302-67d8-42bf-9e26-98ff9c052c68"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

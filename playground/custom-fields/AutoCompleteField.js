@@ -8,28 +8,27 @@ class AutoComplete extends Component {
       ...props.formData,
       ...props.rootSchema,
     };
+
+    // this.onSelect = this.onSelect.bind(this);
   }
 
-  onChange(name) {
-    return event => {
-      this.setState({ [name]: event.target.value });
-      setImmediate(() => this.props.onChange(this.state));
-    };
-  }
+  onSelect = field => value => {
+    this.setState({ [field]: value }, () => this.props.onChange(this.state));
+  };
 
   render() {
-    console.log("state", this.state);
-    console.log("props", this.props);
-    // const {[this.props.name]: value} = this.state
+    const { name, schema, uiSchema } = this.props;
     return (
-      <div className="geo">
-        <h3>Hey, Im a custom component</h3>
-        <div className="row">
-          <div className="col-sm-6">
-            <label>Auto Complete Field</label>
-            <AutoCompleteWidget url={this.props.schema.links[1].href} />
-          </div>
-        </div>
+      <div className="form-group field field-string">
+        <fieldset>
+          <label className="control-label">{name}</label>
+          <AutoCompleteWidget
+            url={schema.links.filter(link => link.rel === "collection")[0].href}
+            idField="id"
+            labelField={uiSchema["ui:label"]}
+            onSelect={this.onSelect("id")}
+          />
+        </fieldset>
       </div>
     );
   }

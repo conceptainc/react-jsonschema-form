@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Autocomplete from "react-autocomplete";
 import axios from "axios";
+import get from "lodash/get";
 
 export default class AutoCompleteWidget extends Component {
   constructor(props, context) {
@@ -8,6 +9,7 @@ export default class AutoCompleteWidget extends Component {
 
     this.state = {
       value: "",
+      itemId: "",
       autocompleteData: [],
     };
 
@@ -18,21 +20,23 @@ export default class AutoCompleteWidget extends Component {
     this.retrieveDataAsynchronously = this.retrieveDataAsynchronously.bind(
       this
     );
+    this.shouldItemRender = this.shouldItemRender.bind(this);
   }
 
   retrieveDataAsynchronously(searchText) {
-    const url = this.props.url;
+    const { url, idField, labelField } = this.props;
     const _this = this;
 
     axios
       .get(url)
       .then(response => {
-        console.log("response ", response);
+        console.log("labelField: ", labelField);
+        console.log("response.data is: ", response.data);
         const retrievedData = response.data.map(item => ({
-          value: item.id,
-          label: item.name,
+          value: get(item, idField),
+          label: get(item, labelField) || "empty",
         }));
-        console.log("parsed data", retrievedData);
+        //console.log('retrievedData is: ', retrievedData);
         _this.setState({
           autocompleteData: retrievedData,
         });
@@ -44,17 +48,15 @@ export default class AutoCompleteWidget extends Component {
     this.setState({
       value: e.target.value,
     });
-
     this.retrieveDataAsynchronously(e.target.value);
-    console.log("changed to ", e.target.value);
   }
 
-  onSelect(val) {
+  onSelect(value, { value: itemId }) {
     this.setState({
-      value: val,
+      value,
+      itemId,
     });
-
-    console.log("selected", val);
+    this.props.onSelect(itemId);
   }
 
   renderItem(item, isHighlighted) {
@@ -65,8 +67,12 @@ export default class AutoCompleteWidget extends Component {
     );
   }
 
+  shouldItemRender(item, value) {
+    return item.label.toLowerCase().indexOf(value.toLowerCase()) !== -1;
+  }
+
   getItemValue(item) {
-    return `${item.value} - ${item.label}`;
+    return item.label;
   }
 
   render() {
@@ -76,9 +82,12 @@ export default class AutoCompleteWidget extends Component {
           getItemValue={this.getItemValue}
           items={this.state.autocompleteData}
           renderItem={this.renderItem}
+          shouldItemRender={this.shouldItemRender}
           value={this.state.value}
           onChange={this.onChange}
           onSelect={this.onSelect}
+          wrapperStyle={{}}
+          inputProps={{ className: "form-control" }}
         />
       </div>
     );

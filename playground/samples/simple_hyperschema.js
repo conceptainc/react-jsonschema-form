@@ -19,11 +19,11 @@ module.exports = {
         links: [
           {
             rel: "self",
-            href: "http://jsonplaceholder.typicode.com/users/{id}",
+            href: "http://localhost:3000/contacts/{id}",
           },
           {
             rel: "collection",
-            href: "http://jsonplaceholder.typicode.com/users",
+            href: "http://localhost:3000/contacts",
           },
         ],
       },
@@ -100,6 +100,7 @@ module.exports = {
   uiSchema: {
     owner: {
       "ui:field": "autocomp",
+      "ui:label": "firstName",
     },
     entity: {
       "ui:widget": "hidden",

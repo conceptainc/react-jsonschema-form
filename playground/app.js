@@ -4,10 +4,20 @@ import { UnControlled as CodeMirror } from "react-codemirror2";
 import "codemirror/mode/javascript/javascript";
 
 import { shouldRender } from "../src/utils";
-import { samples } from "./samples";
+import { samples, uiSchemaSamples } from "./samples";
 import Form from "../src";
 
-import { AutoCompleteField } from "./custom-fields";
+import axios from "axios";
+
+import { themes } from "./themes";
+
+import {
+  AutoCompleteField,
+  AssociationField,
+  AsyncSelectField,
+  HiddenField,
+  IgnoreField,
+} from "./custom-fields";
 
 // Import a few CodeMirror themes; these are used to match alternative
 // bootstrap ones.
@@ -19,6 +29,8 @@ import "codemirror/theme/ttcn.css";
 import "codemirror/theme/solarized.css";
 import "codemirror/theme/monokai.css";
 import "codemirror/theme/eclipse.css";
+
+const baseApiUrl = "http://concepta-inspire-api-dev.herokuapp.com/v1";
 
 const log = type => console.log.bind(console, type);
 const fromJson = json => JSON.parse(json);
@@ -38,93 +50,17 @@ const cmOptions = {
   indentWithTabs: false,
   tabSize: 2,
 };
-const themes = {
-  default: {
-    stylesheet:
-      "//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css",
-  },
-  cerulean: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/cerulean/bootstrap.min.css",
-  },
-  cosmo: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/cosmo/bootstrap.min.css",
-  },
-  cyborg: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/cyborg/bootstrap.min.css",
-    editor: "blackboard",
-  },
-  darkly: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/darkly/bootstrap.min.css",
-    editor: "mbo",
-  },
-  flatly: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/flatly/bootstrap.min.css",
-    editor: "ttcn",
-  },
-  journal: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/journal/bootstrap.min.css",
-  },
-  lumen: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/lumen/bootstrap.min.css",
-  },
-  paper: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/paper/bootstrap.min.css",
-  },
-  readable: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/readable/bootstrap.min.css",
-  },
-  sandstone: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/sandstone/bootstrap.min.css",
-    editor: "solarized",
-  },
-  simplex: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/simplex/bootstrap.min.css",
-    editor: "ttcn",
-  },
-  slate: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/slate/bootstrap.min.css",
-    editor: "monokai",
-  },
-  spacelab: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/spacelab/bootstrap.min.css",
-  },
-  "solarized-dark": {
-    stylesheet:
-      "//cdn.rawgit.com/aalpern/bootstrap-solarized/master/bootstrap-solarized-dark.css",
-    editor: "dracula",
-  },
-  "solarized-light": {
-    stylesheet:
-      "//cdn.rawgit.com/aalpern/bootstrap-solarized/master/bootstrap-solarized-light.css",
-    editor: "solarized",
-  },
-  superhero: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/superhero/bootstrap.min.css",
-    editor: "dracula",
-  },
-  united: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/united/bootstrap.min.css",
-  },
-  yeti: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/yeti/bootstrap.min.css",
-    editor: "eclipse",
-  },
+
+const dynamicEntitySchema = {
+  base: baseApiUrl,
+  type: "string",
+  title: "Entity",
+  links: [{ rel: "collection", href: "/ermEntity" }],
+};
+const dynamicEntityUiSchema = {
+  "ui:field": "asyncSelect",
+  "ui:label": "description",
+  "ui:value": "id",
 };
 
 class Editor extends Component {
@@ -276,6 +212,7 @@ class App extends Component {
       editor: "default",
       theme: "default",
       liveValidate: true,
+      dynamicSchema: "75dd057f-f7ce-467b-9bfe-ef85cadc6077",
       shareURL: null,
     };
   }
@@ -298,6 +235,7 @@ class App extends Component {
   }
 
   load = data => {
+    console.log("data is", data);
     // Reset the ArrayFieldTemplate whenever you load new data
     const { ArrayFieldTemplate, ObjectFieldTemplate } = data;
     // force resetting form component instance
@@ -327,6 +265,25 @@ class App extends Component {
 
   setLiveValidate = ({ formData }) => this.setState({ liveValidate: formData });
 
+  setDynamicSchema = ({ formData }) => {
+    axios
+      .get(baseApiUrl + "/ermEntitySchema/" + formData)
+      .then(response => {
+        const dynamicSchema = response.data;
+        const entityName = dynamicSchema.properties.entity.const;
+        const dynamicUiSchema =
+          uiSchemaSamples[dynamicSchema.properties.entity.const];
+        this.load({
+          schema: dynamicSchema,
+          uiSchema: dynamicUiSchema,
+          formData: { entity: entityName },
+        });
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  };
+
   onFormDataChange = ({ formData }) =>
     this.setState({ formData, shareURL: null });
 
@@ -349,6 +306,7 @@ class App extends Component {
       uiSchema,
       formData,
       liveValidate,
+      dynamicSchema,
       validate,
       theme,
       editor,
@@ -362,8 +320,18 @@ class App extends Component {
         <div className="page-header">
           <h1>react-jsonschema-form</h1>
           <div className="row">
-            <div className="col-sm-8">
+            <div className="col-sm-6">
               <Selector onSelected={this.load} />
+            </div>
+            <div className="col-sm-2">
+              <Form
+                schema={dynamicEntitySchema}
+                uiSchema={dynamicEntityUiSchema}
+                formData={dynamicSchema}
+                onChange={this.setDynamicSchema}
+                fields={{ asyncSelect: AsyncSelectField }}>
+                <div />
+              </Form>
             </div>
             <div className="col-sm-2">
               <Form
@@ -417,7 +385,12 @@ class App extends Component {
               onSubmit={({ formData }) =>
                 console.log("submitted formData", formData)
               }
-              fields={{ autocomp: AutoCompleteField }}
+              fields={{
+                autocomp: AutoCompleteField,
+                association: AssociationField,
+                hiddenField: HiddenField,
+                ignoreField: IgnoreField,
+              }}
               validate={validate}
               onBlur={(id, value) =>
                 console.log(`Touched ${id} with value ${value}`)

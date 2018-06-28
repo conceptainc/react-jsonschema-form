@@ -1,0 +1,8 @@
+{
+  "contacts": [
+    { "id": 4, "firstName": "Eileen", "lastName": "Uchitelle" },
+    { "id": 1, "firstName": "Aaron", "lastName": "Paterson" },
+    { "id": 2, "firstName": "Jose", "lastName": "Valim" },
+    { "id": 3, "firstName": "Yehuda", "lastName": "Katz" }
+  ]
+}
