@@ -44,10 +44,10 @@
   "dependencies": {
     "ajv": "^5.2.3",
     "axios": "^0.18.0",
-    "jsonschema-form-transpiler": "../jsonschema-form-transpiler",
     "lodash.topath": "^4.5.2",
     "prop-types": "^15.5.8",
     "react-autocomplete": "^1.8.1",
+    "react-select": "^1.2.1",
     "setimmediate": "^1.0.5"
   },
   "devDependencies": {

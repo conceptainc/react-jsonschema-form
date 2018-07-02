@@ -235,7 +235,6 @@ class App extends Component {
   }
 
   load = data => {
-    console.log("data is", data);
     // Reset the ArrayFieldTemplate whenever you load new data
     const { ArrayFieldTemplate, ObjectFieldTemplate } = data;
     // force resetting form component instance

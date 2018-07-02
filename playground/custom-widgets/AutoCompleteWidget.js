@@ -30,13 +30,10 @@ export default class AutoCompleteWidget extends Component {
     axios
       .get(url)
       .then(response => {
-        console.log("labelField: ", labelField);
-        console.log("response.data is: ", response.data);
         const retrievedData = response.data.map(item => ({
           value: get(item, idField),
           label: get(item, labelField) || "empty",
         }));
-        //console.log('retrievedData is: ', retrievedData);
         _this.setState({
           autocompleteData: retrievedData,
         });

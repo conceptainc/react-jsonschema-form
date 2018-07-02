@@ -12,6 +12,13 @@ const samples = {
 
 const uiSchemaSamples = {
   account: {
+    "ui:order": [
+      "associations",
+      "fields",
+      "entity",
+      "recordStatusType",
+      "reverseAssociations",
+    ],
     entity: {
       "ui:widget": "hidden",
     },
@@ -19,25 +26,31 @@ const uiSchemaSamples = {
       "ui:widget": "hidden",
     },
     associations: {
+      "ui:order": [
+        "accountSalesPersons",
+        "accountDeals",
+        "accountContacts",
+        "accountNotes",
+      ],
       accountContacts: {
         "ui:field": "association",
-        "ui:value": "id",
-        "ui:label": "fields.firstName[0].val",
+        "ui:value": "data.id",
+        "ui:label": "data.fields.firstName[0].val",
       },
       accountNotes: {
         "ui:field": "association",
-        "ui:value": "id",
-        "ui:label": "fields.title[0].val",
+        "ui:value": "data.id",
+        "ui:label": "data.fields.title[0].val",
       },
       accountDeals: {
         "ui:field": "association",
-        "ui:value": "id",
-        "ui:label": "fields.name[0].val",
+        "ui:value": "data.id",
+        "ui:label": "data.fields.name[0].val",
       },
       accountSalesPersons: {
         "ui:field": "association",
-        "ui:value": "id",
-        "ui:label": "fields.firstName[0].val",
+        "ui:value": "data.id",
+        "ui:label": "data.fields.firstName[0].val",
       },
     },
     reverseAssociations: {
@@ -45,56 +58,69 @@ const uiSchemaSamples = {
     },
   },
   activity: {
+    "ui:order": [
+      "associations",
+      "fields",
+      "entity",
+      "recordStatusType",
+      "reverseAssociations",
+    ],
+    entity: {
+      "ui:widget": "hidden",
+    },
+    recordStatusType: {
+      "ui:widget": "hidden",
+    },
     associations: {
       activityIsTask: {
         "ui:field": "association",
-        "ui:value": "id",
-        "ui:label": "fields.description[0].val",
+        "ui:value": "data.id",
+        "ui:label": "data.fields.description[0].val",
       },
       activityRecipients: {
         "ui:field": "association",
-        "ui:value": "id",
-        "ui:label": "fields.firstName[0].val",
+        "ui:value": "data.id",
+        "ui:label": "data.fields.firstName[0].val",
       },
       activityAccount: {
         "ui:field": "association",
-        "ui:value": "id",
-        "ui:label": "fields.name[0].val",
+        "ui:value": "data.id",
+        "ui:label": "data.fields.name[0].val",
       },
       activityDeal: {
         "ui:field": "association",
-        "ui:value": "id",
-        "ui:label": "fields.name[0].val",
+        "ui:value": "data.id",
+        "ui:label": "data.fields.name[0].val",
       },
       activityIsEmail: {
         "ui:field": "association",
-        "ui:value": "id",
-        "ui:label": "fields.title[0].val",
+        "ui:value": "data.id",
+        "ui:label": "data.fields.title[0].val",
       },
       activityIsCall: {
         "ui:field": "association",
-        "ui:value": "id",
-        "ui:label": "fields.comments[0].val",
+        "ui:value": "data.id",
+        "ui:label": "data.fields.comments[0].val",
       },
       activityAgent: {
         "ui:field": "association",
-        "ui:value": "id",
-        "ui:label": "fields.firstName[0].val",
+        "ui:value": "data.id",
+        "ui:label": "data.fields.firstName[0].val",
       },
       activityHiddenRecipients: {
         "ui:field": "association",
-        "ui:value": "id",
-        "ui:label": "fields.firstName[0].val",
+        "ui:value": "data.id",
+        "ui:label": "data.fields.firstName[0].val",
       },
       activityOwner: {
         "ui:field": "association",
-        "ui:value": "id",
-        "ui:label": "fields.firstName[0].val",
+        "ui:value": "data.id",
+        "ui:label": "data.fields.firstName[0].val",
       },
       activityIsEvent: {
         "ui:field": "association",
-        "ui:value": "id",
-        "ui:label": "fields.description[0].val",
+        "ui:value": "data.id",
+        "ui:label": "data.fields.description[0].val",
       },
     },
     reverseAssociations: {
@@ -102,6 +128,12 @@ const uiSchemaSamples = {
     },
   },
   activityTask: {
+    entity: {
+      "ui:widget": "hidden",
+    },
+    recordStatusType: {
+      "ui:widget": "hidden",
+    },
     associations: {
       "ui:field": "ignoreField",
     },
@@ -110,6 +142,12 @@ const uiSchemaSamples = {
     },
   },
   activityEvent: {
+    entity: {
+      "ui:widget": "hidden",
+    },
+    recordStatusType: {
+      "ui:widget": "hidden",
+    },
     associations: {
       "ui:field": "ignoreField",
     },
@@ -118,6 +156,12 @@ const uiSchemaSamples = {
     },
   },
   activityEmail: {
+    entity: {
+      "ui:widget": "hidden",
+    },
+    recordStatusType: {
+      "ui:widget": "hidden",
+    },
     associations: {
       "ui:field": "ignoreField",
     },
@@ -126,6 +170,12 @@ const uiSchemaSamples = {
     },
   },
   activityCall: {
+    entity: {
+      "ui:widget": "hidden",
+    },
+    recordStatusType: {
+      "ui:widget": "hidden",
+    },
     associations: {
       "ui:field": "ignoreField",
     },
@@ -134,21 +184,27 @@ const uiSchemaSamples = {
     },
   },
   deal: {
+    entity: {
+      "ui:widget": "hidden",
+    },
+    recordStatusType: {
+      "ui:widget": "hidden",
+    },
     associations: {
       dealSalesPersons: {
         "ui:field": "association",
-        "ui:value": "id",
-        "ui:label": "fields.firstName[0].val",
+        "ui:value": "data.id",
+        "ui:label": "data.fields.firstName[0].val",
       },
       dealAccount: {
         "ui:field": "association",
-        "ui:value": "id",
-        "ui:label": "fields.name[0].val",
+        "ui:value": "data.id",
+        "ui:label": "data.fields.name[0].val",
       },
       dealAccountContacts: {
         "ui:field": "association",
-        "ui:value": "id",
-        "ui:label": "fields.firstName[0].val",
+        "ui:value": "data.id",
+        "ui:label": "data.fields.firstName[0].val",
       },
     },
     reverseAssociations: {
@@ -179,13 +235,13 @@ const uiSchemaSamples = {
     associations: {
       personContacts: {
         "ui:field": "association",
-        "ui:value": "id",
-        "ui:label": "fields.firstName[0].val",
+        "ui:value": "data.id",
+        "ui:label": "data.fields.firstName[0].val",
       },
       personNotes: {
         "ui:field": "association",
-        "ui:value": "id",
-        "ui:label": "fields.title[0].val",
+        "ui:value": "data.id",
+        "ui:label": "data.fields.title[0].val",
       },
     },
     reverseAssociations: {
