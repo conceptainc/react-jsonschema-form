@@ -229,7 +229,7 @@ const uiSchemaSamples = {
     entity: {
       "ui:widget": "hidden",
     },
-    recordstatustype: {
+    recordStatusType: {
       "ui:widget": "hidden",
     },
     associations: {

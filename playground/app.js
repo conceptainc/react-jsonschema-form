@@ -4,7 +4,7 @@ import { UnControlled as CodeMirror } from "react-codemirror2";
 import "codemirror/mode/javascript/javascript";
 
 import { shouldRender } from "../src/utils";
-import { samples, uiSchemaSamples } from "./samples";
+import { uiSchemaSamples } from "./samples";
 import Form from "../src";
 
 import axios from "axios";
@@ -12,7 +12,6 @@ import axios from "axios";
 import { themes } from "./themes";
 
 import {
-  AutoCompleteField,
   AssociationField,
   AsyncSelectField,
   HiddenField,
@@ -109,44 +108,6 @@ class Editor extends Component {
   }
 }
 
-class Selector extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { current: "Simple" };
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    return shouldRender(this, nextProps, nextState);
-  }
-
-  onLabelClick = label => {
-    return event => {
-      event.preventDefault();
-      this.setState({ current: label });
-      setImmediate(() => this.props.onSelected(samples[label]));
-    };
-  };
-
-  render() {
-    return (
-      <ul className="nav nav-pills">
-        {Object.keys(samples).map((label, i) => {
-          return (
-            <li
-              key={i}
-              role="presentation"
-              className={this.state.current === label ? "active" : ""}>
-              <a href="#" onClick={this.onLabelClick(label)}>
-                {label}
-              </a>
-            </li>
-          );
-        })}
-      </ul>
-    );
-  }
-}
-
 function ThemeSelector({ theme, select }) {
   const themeSchema = {
     type: "string",
@@ -201,14 +162,13 @@ class CopyLink extends Component {
 class App extends Component {
   constructor(props) {
     super(props);
-    // initialize state with Simple data sample
-    const { schema, uiSchema, formData, validate } = samples.Simple;
+    // initialize state with no sample
     this.state = {
       form: false,
-      schema,
-      uiSchema,
-      formData,
-      validate,
+      schema: null,
+      uiSchema: null,
+      formData: null,
+      validate: null,
       editor: "default",
       theme: "default",
       liveValidate: true,
@@ -226,7 +186,9 @@ class App extends Component {
         alert("Unable to load form setup data.");
       }
     } else {
-      this.load(samples.Simple);
+      this.setDynamicSchema({
+        formData: "75dd057f-f7ce-467b-9bfe-ef85cadc6077",
+      });
     }
   }
 
@@ -317,11 +279,8 @@ class App extends Component {
     return (
       <div className="container-fluid">
         <div className="page-header">
-          <h1>react-jsonschema-form</h1>
+          <h1>react-jsonschema-form extended</h1>
           <div className="row">
-            <div className="col-sm-6">
-              <Selector onSelected={this.load} />
-            </div>
             <div className="col-sm-2">
               <Form
                 schema={dynamicEntitySchema}
@@ -385,7 +344,6 @@ class App extends Component {
                 console.log("submitted formData", formData)
               }
               fields={{
-                autocomp: AutoCompleteField,
                 association: AssociationField,
                 hiddenField: HiddenField,
                 ignoreField: IgnoreField,
